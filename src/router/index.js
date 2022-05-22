@@ -7,6 +7,8 @@ import NewsView from "../views/NewsView.vue";
 Vue.use(VueRouter);
 
 export const router = new VueRouter({
+  // 해시값 없애는 속성
+  mode: "history",
   routes: [
     {
       path: "/",
