@@ -1,9 +1,18 @@
 <template>
-  <div id="app">Hello</div>
+  <div id="app">
+    <tool-bar></tool-bar>
+    <router-view></router-view>
+  </div>
 </template>
 
 <script>
-export default {};
+import ToolBar from "./components/ToolBar.vue";
+
+export default {
+  components: {
+    ToolBar,
+  },
+};
 </script>
 
 <style>
