@@ -1,8 +1,8 @@
-import axios from 'axios';
+import axios from "axios";
 
 // 1. HTTP Request & Response 관련된 기본 설정
 const config = {
-  baseUrl : 'https://api.hnpwa.com/v0/'
+  baseUrl: "https://api.hnpwa.com/v0/",
 };
 
 // 2. API 함수들을 정리
@@ -18,9 +18,5 @@ function fetchJobsList() {
   return axios.get(`${config.baseUrl}jobs/1.json`);
 }
 
-
-export {
-  fetchNewsList,
-  fetchAskList,
-  fetchJobsList
-};
+// 다른 곳에서 import 해서 쓰기 위한 작업
+export { fetchNewsList, fetchAskList, fetchJobsList };
