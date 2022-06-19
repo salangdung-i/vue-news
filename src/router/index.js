@@ -4,6 +4,7 @@ import AskView from "../views/AskView.vue";
 import JobsView from "../views/JobsView.vue";
 import NewsView from "../views/NewsView.vue";
 
+// 플러그인 형태
 Vue.use(VueRouter);
 
 export const router = new VueRouter({
