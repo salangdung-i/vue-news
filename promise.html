@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Promise</title>
+  </head>
+  <body>
+    <div>jquery ajax</div>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.js"
+      integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      function callAjax() {
+        return new Promise(function (resolve, reject) {
+          $.ajax({
+            url: "https://api.hnpwa.com/v0/news/1.json",
+            success: function (data) {
+              resolve(data);
+            },
+          });
+        });
+      }
+      function fetchData() {
+        // 1.
+        var result = [];
+
+        // 2. 데이터 처리가 되기 전에 다음 코드를 처리함.(js의 특징.)
+        $.ajax({
+          url: "https://api.hnpwa.com/v0/news/1.json",
+          success: function (data) {
+            console.log("데이터 호출 결과", data);
+            result = data;
+            console.log("함수 결과", result);
+            // callback을 계속 쌓다 보면... nest
+            // 절차적 사고에 위배되는 코드가 생김..
+            // 이런 이유로 promise가 생기게됨. 비동기 처리 패턴
+          },
+        });
+        // 3.
+        // console.log('함수 결과', result);
+
+        //   /*
+        // $.ajax()
+        // .then()
+        // .catch();
+        // */
+
+        callAjax().then(function (data) {
+          console.log("데이터 호출 결과", data);
+          result = data;
+          console.log("함수 결과", result);
+        });
+      }
+      fetchData();
+    </script>
+  </body>
+</html>
